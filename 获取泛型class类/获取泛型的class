@@ -1,0 +1,31 @@
+都知道通过反射可以直接创建对象的实例，但我们需要得到对象的class。但如果对象是一个泛型，如何获得T.class呢？
+
+有一个比较流行的方法如下：
+
+ 
+Java代码  收藏代码
+
+    public class Test<T> {  
+        public T newInstance(){  
+            T instance=null;  
+            Class<T> entityClass = (Class<T>) ((ParameterizedType) this.getClass().getGenericSuperclass()).getActualTypeArguments()[0];  
+    //      ……  
+            return instance;  
+        };  
+    }  
+
+ 
+
+如果有多个泛型呢？
+
+ 
+Java代码  收藏代码
+
+    public class Test<PK,T> {  
+        public T newInstance(){  
+            T instance=null;  
+            Class<T> entityClass = (Class<T>) ((ParameterizedType) this.getClass().getGenericSuperclass()).getActualTypeArguments()[1];  
+    //      ……  
+            return instance;  
+        };  
+    }  

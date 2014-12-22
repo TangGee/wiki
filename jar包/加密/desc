@@ -1,0 +1,2 @@
+  //commons-codec.jar  加密用的 
+        DigestUtils.md5Hex("zifuchuan");

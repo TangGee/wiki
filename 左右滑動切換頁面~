@@ -1,0 +1,37 @@
+detector=new GestureDetector(this, new SimpleOnGestureListener(){
+			
+			@Override
+			public boolean onFling(MotionEvent e1, MotionEvent e2,
+					float velocityX, float velocityY) {
+				//屏蔽在x轴滑动很慢
+				if(velocityX<200)
+				{
+					return true;
+				}
+				
+				//屏蔽邪着滑
+				if(Math.abs(e1.getY()-e2.getY())>100)
+				{
+					Toast.makeText(getApplicationContext(), "不能这样滑哦", 1).show();;
+					return true;
+				}
+				
+				if((e2.getX()-e1.getX())>200){
+					//上一页
+					Log.i("AAAA", "上一个页面");
+				    showPreActivity();
+					return true;
+				}
+				if(e1.getX()-e2.getX()>200)
+				{
+					//下一页
+					Log.i("AAAA", "下一个页面");
+					showNextActivity();
+					return true;
+				}
+				
+				return super.onFling(e1, e2, velocityX, velocityY);
+			
+			}
+		}
+		);

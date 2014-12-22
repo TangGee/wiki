@@ -1,0 +1,29 @@
+注意 overridePendingTransition(R.anim.tran_in	, R.anim.tran_out); 要寫在finish()方法後邊調用
+
+	@Override
+	public void showNextActivity() {
+		
+		
+		if(cb_setup4_configed.isChecked()){
+			
+			sp.edit().putBoolean("opensafe", true).commit();
+		}else{
+			sp.edit().putBoolean("opensafe", false).commit();
+		}
+	
+		sp.edit().putBoolean("configed", true).commit();
+		
+		
+		Intent intent=new Intent(this, LostAndFondActivity.class);
+		startActivity(intent);
+		finish();
+		overridePendingTransition(R.anim.tran_in	, R.anim.tran_out);
+	}
+
+	@Override
+	public void showPreActivity() {
+		Intent intent=new Intent(this, SettingUp3Activity.class);
+		startActivity(intent);
+		finish();
+		overridePendingTransition(R.anim.tran_pre_in	, R.anim.tran_pre_out);
+	}

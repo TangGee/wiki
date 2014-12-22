@@ -1,0 +1,13 @@
+private static void readAPN(Context context) {
+		Uri PREFERRED_APN_URI = Uri.parse("content://telephony/carriers/preferapn");
+		ContentResolver resolver=context.getContentResolver();
+		Cursor cursor=resolver.query(PREFERRED_APN_URI , null, null, null, null);
+		if(cursor!=null&&cursor.moveToFirst())
+		{
+			consts.GlobalParamter.PROXY_HOST=cursor.getString(cursor.getColumnIndex("proxy"));
+			consts.GlobalParamter.PROXY_PORT=cursor.getInt(cursor.getColumnIndex("port"));
+			
+		}
+		cursor.close();
+		
+	}

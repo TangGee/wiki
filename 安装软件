@@ -1,0 +1,8 @@
+private void installApk(File t) {
+		
+		Intent intent=new Intent();
+		intent.setAction("android.intent.action.VIEW");
+		intent.addCategory("android.intent.category.DEFAULT");
+		intent.setDataAndType(Uri.fromFile(t),"application/vnd.android.package-archive" );
+		startActivity(intent);
+	}

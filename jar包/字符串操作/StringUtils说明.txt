@@ -1,0 +1,185 @@
+common.lang中StringUtils介绍  	 
+
+StringUtils是对java中String类的增强和补充，简化开发。主要方法分为：
+1 判空：isEmpty、isBlank
+用法略
+
+2 取空格：trim、strip系列方法
+这两个方法的区别是trim去掉的是不显示的控制符，而strip去掉的空格。
+Java代码  
+public static void main(String[] args) {  
+        StringBuilder sb = new StringBuilder();  
+        char a = 0x10;  
+        sb.append(a);  
+        sb.append("aaaa");  
+        sb.append(" ");  
+        System.out.println(sb);//aaaa   
+        System.out.println(StringUtils.trim(sb.toString()));//aaaa  
+        System.out.println(StringUtils.strip(sb.toString()));//aaaa  
+    }  
+
+
+源码里有趣的地方：
+Java代码  
+static {  
+        try {  
+            // java.text.Normalizer.normalize(CharSequence, Normalizer.Form.NFD);  
+            // Be careful not to get Java 1.3 java.text.Normalizer!  
+            Class<?> normalizerFormClass = Thread.currentThread().getContextClassLoader()  
+                .loadClass("java.text.Normalizer$Form");//$NON-NLS-1$  
+            java6NormalizerFormNFD = normalizerFormClass.getField("NFD").get(null);//$NON-NLS-1$  
+            Class<?> normalizerClass = Thread.currentThread().getContextClassLoader()  
+                .loadClass("java.text.Normalizer");//$NON-NLS-1$  
+            java6NormalizeMethod = normalizerClass.getMethod("normalize",  
+                    new Class[] {CharSequence.class, normalizerFormClass});//$NON-NLS-1$  
+            java6Available = true;  
+        } catch (ClassNotFoundException e) {  
+            java6Available = false;  
+        } catch (NoSuchFieldException e) {  
+            java6Available = false;  
+        } catch (IllegalAccessException e) {  
+            java6Available = false;  
+        } catch (NoSuchMethodException e) {  
+            java6Available = false;  
+        }  
+  
+        try {  
+            // sun.text.Normalizer.decompose(text, false, 0);  
+            Class<?> normalizerClass = Thread.currentThread().getContextClassLoader()  
+                .loadClass("sun.text.Normalizer");//$NON-NLS-1$  
+            sunDecomposeMethod = normalizerClass.getMethod("decompose",  
+                    new Class[] {String.class, Boolean.TYPE, Integer.TYPE});//$NON-NLS-1$  
+            sunAvailable = true;  
+        } catch (ClassNotFoundException e) {  
+            sunAvailable = false;  
+        } catch (NoSuchMethodException e) {  
+            sunAvailable = false;  
+        }  
+    }  
+
+用了一段static块来验证系统支持的java版本。
+另外大量用三元运算符，简化代码。
+
+3 判等equals/equalsIgnoreCase
+和名字类似，比string增强处是针对null做了处理。
+equalsIgnoreCase调用了CharSequenceUtils中的方法，以后再说
+
+4 包含index/contain系列
+
+调用的都是CharSequenceUtils下的方法，没啥好说的。
+
+5 截取字串substring系列
+比string类增加了一些对于null的处理以及截取位置的选择方法。
+源码中有趣的地方：
+在涉及到返回为数组时，中间逻辑都是使用list来处理，最后结果处转为数组。
+
+6 分割字符串 split系列
+
+诸如splitByWholeSeparator和splitPreserveAllTokens和这种方法的主要区别是如何处理连续多个分隔符，前者将多个连续的分隔符视为一个，而后者会分别分割，结果出现很多为空的字符串。
+对于这块的逻辑，源码里的实现方式为：
+
+Java代码  
+char sep = separatorChars.charAt(0);//分隔符为单字符时的情况  
+           while (i < len) {  
+               if (str.charAt(i) == sep) {  
+                   if (match || preserveAllTokens) {//preserveAllTokens 为是否考虑处理连续多个分隔符。当没处理一个分隔符后match都会被修改为false，如果接下来的仍然为分隔符，这个if的逻辑将有 preserveAllTokens决定。如果preserveAllTokens为false，将跳过这个分隔符，直到遇到下一个不为分隔符的字符 时，match被修改为true，才能继续开始分割。  
+                       lastMatch = true;  
+                       if (sizePlus1++ == max) {  
+                           i = len;  
+                           lastMatch = false;  
+                       }  
+                       list.add(str.substring(start, i));  
+                       match = false;  
+                   }  
+                   start = ++i;  
+                   continue;  
+               }  
+               lastMatch = false;  
+               match = true;  
+               i++;  
+
+
+如果分隔符为多个字符，处理逻辑类似
+Java代码  
+while (i < len) {  
+                if (separatorChars.indexOf(str.charAt(i)) >= 0) {  
+                    if (match || preserveAllTokens) {  
+                        lastMatch = true;  
+                        if (sizePlus1++ == max) {  
+                            i = len;  
+                            lastMatch = false;  
+                        }  
+                        list.add(str.substring(start, i));  
+                        match = false;  
+                    }  
+                    start = ++i;  
+                    continue;  
+                }  
+                lastMatch = false;  
+                match = true;  
+                i++;  
+            }  
+
+
+7 合并字符串join系列
+使用stringbuilder
+Java代码  
+bufSize *= ((array[startIndex] == null ? 16 : array[startIndex].toString().length())  
+                        + separator.length());  
+
+源码中设置builder初始大小的逻辑，以第一个需要合并的对象长度来估计。
+
+8 删除子串deleteWhitespace和remove系列
+这个没啥好说的，复杂一点的删除都是调用了接下来要说的replace方法
+
+9 替代子串replace、chomp系列
+有意思的还是初始化stringbuilder长度
+Java代码  
+}  
+      int replLength = searchString.length();  
+      int increase = replacement.length() - replLength;  
+      increase = (increase < 0 ? 0 : increase);  
+      increase *= (max < 0 ? 16 : (max > 64 ? 64 : max));  
+      StringBuilder buf = new StringBuilder(text.length() + increase);  
+
+
+10 重复 repeat/pad/center系列
+Java代码  
+switch (inputLength) {  
+           case 1 :  
+               return repeat(str.charAt(0), repeat);  
+           case 2 :  
+               char ch0 = str.charAt(0);  
+               char ch1 = str.charAt(1);  
+               char[] output2 = new char[outputLength];  
+               for (int i = repeat * 2 - 2; i >= 0; i--, i--) {  
+                   output2[i] = ch0;  
+                   output2[i + 1] = ch1;  
+               }  
+               return new String(output2);  
+           default :  
+               StringBuilder buf = new StringBuilder(outputLength);  
+               for (int i = 0; i < repeat; i++) {  
+                   buf.append(str);  
+               }  
+               return buf.toString();  
+       }  
+
+在量少的时候，尽量用拼接char数组的方式，量多采用stringbuilder
+stringbuilder其实也是char数组
+测试下了两字节五千次拼接，重复一千遍，直接采用char数组用时93ms，而采用stringbuilder用时173ms。
+这里不太理解，为什么是两个字节而不是四个字节或更多，需要再研究下。
+
+11 大小写转换
+没什么好说的，主要是对null做处理
+
+12 字符串统计 countMatches
+实用，但 也没啥好说的
+
+13 判断属性is系列
+调用jdk中的Character方法
+
+14 缩减字符串abbreviate系列
+就是将一个长字符串写成头几个字母加省略号的格式，web用处比较多，实现也没什么好说的。
+---------------------
+结扎，over还有一篇比较好：http://www.blogjava.net/zhaochengming/archive/2011/09/26/359500.html不过里头有错误。

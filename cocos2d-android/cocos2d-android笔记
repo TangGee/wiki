@@ -1,0 +1,125 @@
+concos 是2d的游戏引擎 代码不是很多
+
+1 CCGLSurfaceView new出来setCOntentVIew
+2 创建 CCDirector director=CCDirector.sharedDirector();
+3 设置横屏幕 director.setDeviceOrientation(CCDirector.kCCDeviceOrientationLandscapeLeft);
+
+4显示帧率 director.setDisplayFPS(true);
+
+5在 activity的 onPause onResume 和 destory 中要分别调用director的 onPause,onResume和 destory方法
+
+5 设置屏幕大小 director.setScreenSize(480, 320); 
+6 创建 ccScence 这是一个场景CCScene root=CCScene.node();
+7 设置 场景下的 层  	FIrstLayer layer=new FIrstLayer(); 
+8 设置层 下的 精灵 	CCSprite leaf=CCSprite.sprite("avatar_boy.png");
+9 逐层添加child 优先级为z轴坐标 同时可是指 tag
+10 director 开启线程       director.attachInView(surfaceView);
+11 跑场景   director.runWithScene(ccScene);
+
+对CCLayer细节
+1 设置监听点击 一个CCScence只能有一个CCLayer设置触摸事件this.setIsTouchEnabled(true);
+2 坐标转换  CGPoint toCgPoint=this.convertTouchToNodeSpace(event); 安卓坐标转换为cocos2d 坐标(左上角转换对于左下角)
+3	判断某个点是否在某个区域  例子代码是获取一个CCSprit的区域 boolean is=CGRect.containsPoint(sprite.getBoundingBox(), toCgPoint); 
+
+对CCSprite的细节
+1 图片资源要放在资产目录
+2 优先级 优先级越大的越显示在前边
+3 设置锚点 默认以图片中心 	leaf.setAnchorPoint(0,0); 设置为右下角
+4  默认坐标在左下角 为0,0
+5 设置镜像的方法 sprite.setFlipX(true); 做x轴的镜像
+6 设置位置sprite.setPosition(100, 0);
+7 设置透明度 sprite.setOpacity(100);  0-255
+8 设置是否可见 sprite.setVisible(true);
+9 删除自己sprite.removeSelf();
+10 缩放  setSacleY X 什么的
+11 getChildren 获取孩子集合 拿不到孙子
+
+动作库 CCAction
+四个子类
+CCFiniteTimeAction 受时间限制的动作
+     分为瞬时动作 CCInstantAction 立即执行
+            CCFlipX/CCFlipY 立即镜像
+            CCHide 立即隐藏
+            CCShow 立即显示
+            CCPlace 立即放到某点
+     和延时动作  CCIntervalAction 延时
+            CCMoveTo移动  移动到指定点
+            CCMoveBy 移动 移动到相对点 点有正有负 并可以反向操作
+                    reverse()反向操作
+
+CCFollow 屏幕随英雄跑动
+CCRepeatForever 永久不停的播放
+   
+CCSpeed 速度控制
+
+ 1	使用 CCMoveTo moveTo=CCMoveTo.action(100, pos);
+ 时间 秒		getSprite().runAction(moveTo);
+
+2 串联动作执行 CCSequence 
+   CCSequence sequence=CCSequence.actions(moveTo, moveTo.reverse());
+   getSprite().runAction(sequence);
+3 反复执行动作
+    CCRepeatForever forever=CCRepeatForever.action(sequence);
+
+4 跳跃
+    CGPoint pos=CGPoint.ccp(300, 150);
+//跳跃 时间 目标点 最高点 次数
+    CCJumpBy jumpBy=CCJumpBy.action(2, pos, 200, 2); 两次跳跃达到最高点
+    getSprite().runAction(jumpBy);
+
+5 抛物线
+    抛物线配置信息CCBezierConfig c=new CCBezierConfig();
+		c.controlPoint_1= CGPoint.ccp(0, 0);
+		c.controlPoint_2= CGPoint.ccp(150, 250);
+		c.endPosition= CGPoint.ccp(300, 0);
+		CCBezierBy bezierBy=CCBezierBy.action(2, c);
+6 渐变
+     	CCMoveBy moveBy=CCMoveBy.action(2,CGPoint.ccp(100, 100));
+		//速度渐变 动作 加速度
+		CCEaseIn in=CCEaseIn.action(moveBy, 10);
+		CCSequence sequence=CCSequence.actions(in, in.reverse());
+		CCRepeatForever forever=CCRepeatForever.action(sequence);
+		getSprite().runAction(forever);
+7 缩放
+   缩放和锚点有关
+ 	CCScaleBy scaleBy=CCScaleBy.action(.2f, 1.5f);
+	CCSequence sequence=CCSequence.actions(scaleBy, scaleBy.reverse());
+	CCRepeatForever forever=CCRepeatForever.action(sequence);
+	getSprite().runAction(forever);
+8 旋转 
+   旋转和锚点有关
+        CCRotateBy rotateBy=CCRotateBy.action(2, 199);
+	getSprite().runAction(rotateBy);
+      这个by和to的区别是 to怎么省事怎么转 转最小的角度到目标
+      
+9 文字颜色渐变
+    		// TODO Auto-generated method stub
+		ccColor3B c=ccColor3B.ccc3(0, -100, 0);
+		
+		//文字精灵
+		CCTintBy by=CCTintBy.action(2, c);
+		// 内容 字体 大小
+		CCLabel label= CCLabel.makeLabel("哈哈哈", "", 20);
+		ActionLayer.this.addChild(label);
+		
+		label.setColor(ccColor3B.ccc3(0, 250, 0));
+		
+		label.setAnchorPoint(0,0);
+		label.setPosition(CGPoint.ccp(100, 200));
+		
+		CCSequence sequence=CCSequence.actions(by, by.reverse());
+		
+		CCRepeatForever forever=CCRepeatForever.action(sequence);
+		
+		label.runAction(forever);
+
+10 闪烁
+       显示隐藏
+ 		CCBlink ccBlink=CCBlink.action(2, 3);
+		getSprite().runAction(ccBlink);
+
+11 延时 
+   //参数 延时 时间
+   CCDelayTime.action(2);
+   
+

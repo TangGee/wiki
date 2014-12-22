@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html><head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# object: http://ogp.me/ns/object# article: http://ogp.me/ns/article# profile: http://ogp.me/ns/profile#">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>yangfuhai/afinal · GitHub</title>
+    <link rel="search" type="application/opensearchdescription+xml" href="https://github.com/opensearch.xml" title="GitHub">
+    <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
+    <link rel="apple-touch-icon" sizes="57x57" href="https://github.com/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://github.com/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://github.com/apple-touch-icon-144.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://github.com/apple-touch-icon-144.png">
+    <meta property="fb:app_id" content="1401488693436528">
+
+      <meta content="@github" name="twitter:site"><meta content="summary" name="twitter:card"><meta content="yangfuhai/afinal" name="twitter:title"><meta content="afinal - Afinal是一个android的ioc，orm框架，内置了四大模块功能：FinalAcitivity,FinalBitmap,FinalDb,FinalHttp。通过finalActivity，我们可以通过注解的方式进行绑定ui�" name="twitter:description"><meta content="https://avatars.githubusercontent.com/u/1539806" name="twitter:image:src">
+<meta content="GitHub" property="og:site_name"><meta content="object" property="og:type"><meta content="https://avatars.githubusercontent.com/u/1539806" property="og:image"><meta content="yangfuhai/afinal" property="og:title"><meta content="https://github.com/yangfuhai/afinal" property="og:url"><meta content="afinal - Afinal是一个android的ioc，orm框架，内置了四大模块功能：FinalAcitivity,FinalBitmap,FinalDb,FinalHttp。通过finalActivity，我们可以通过注解的方式进行绑定ui和事件。通过finalBitmap，我们可以方便的加载bitmap图片，而无需考虑oom等问题。通过finalDB模块，我们一行代码就可以对android的sqlite数据库进行增删改查。通过FinalHttp模块，我们可以以ajax形式请求http数据。详情请通过以下网址查看。" property="og:description">
+
+    <meta name="hostname" content="github-fe134-cp1-prd.iad.github.net">
+    <meta name="ruby" content="ruby 2.1.0p0-github-tcmalloc (87c9373a41) [x86_64-linux]">
+    <link rel="assets" href="https://github.global.ssl.fastly.net/">
+    <link rel="conduit-xhr" href="https://ghconduit.com:25035/">
+    <link rel="xhr-socket" href="https://github.com/_sockets">
+
+
+    <meta name="msapplication-TileImage" content="/windows-tile.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    
+    <meta content="collector.githubapp.com" name="octolytics-host"><meta content="collector-cdn.github.com" name="octolytics-script-host"><meta content="github" name="octolytics-app-id"><meta content="B6120302:1011:8C0CE4:530DA705" name="octolytics-dimension-request_id">
+    
+
+    
+    
+    <link rel="icon" type="image/x-icon" href="https://github.com/favicon.ico">
+
+    <meta content="authenticity_token" name="csrf-param">
+<meta content="QfzzgmvBEoNLESCG3zBN0GufcNMu2ksq2gIT8Cs/fNo=" name="csrf-token">
+
+    <link href="yangfuhai_afinal%20%C2%B7%20GitHub_files/github-99f0c420247f036251131234f2df1eaaf2ddb386.css" media="all" rel="stylesheet" type="text/css">
+    <link href="yangfuhai_afinal%20%C2%B7%20GitHub_files/github2-c1671115cdd7e4b44317ecd428238f073c37dbc0.css" media="all" rel="stylesheet" type="text/css">
+    
+    
+
+
+      <script crossorigin="anonymous" src="yangfuhai_afinal%20%C2%B7%20GitHub_files/frameworks-01ab94ef47d6293597922a1fab60e274e1d8f37e.js" type="text/javascript"></script>
+      <script async="async" crossorigin="anonymous" src="yangfuhai_afinal%20%C2%B7%20GitHub_files/github-4080dfd1919155cf72a9b56c3bf746e67b898aa6.js" type="text/javascript"></script>
+      
+      <meta http-equiv="x-pjax-version" content="285f2c751e45e1751b37093c33d9affd">
+
+      
+  <meta name="description" content="afinal - Afinal是一个android的ioc，orm框架，内置了四大模块功能：FinalAcitivity,FinalBitmap,FinalDb,FinalHttp。通过finalActivity，我们可以通过注解的方式进行绑定ui和事件。通过finalBitmap，我们可以方便的加载bitmap图片，而无需考虑oom等问题。通过finalDB模块，我们一行代码就可以对android的sqlite数据库进行增删改查。通过FinalHttp模块，我们可以以ajax形式请求http数据。详情请通过以下网址查看。">
+
+  <meta content="1539806" name="octolytics-dimension-user_id"><meta content="yangfuhai" name="octolytics-dimension-user_login"><meta content="6257984" name="octolytics-dimension-repository_id"><meta content="yangfuhai/afinal" name="octolytics-dimension-repository_nwo"><meta content="true" name="octolytics-dimension-repository_public"><meta content="false" name="octolytics-dimension-repository_is_fork"><meta content="6257984" name="octolytics-dimension-repository_network_root_id"><meta content="yangfuhai/afinal" name="octolytics-dimension-repository_network_root_nwo">
+  <link href="https://github.com/yangfuhai/afinal/commits/master.atom" rel="alternate" title="Recent Commits to afinal:master" type="application/atom+xml">
+
+  <script src="yangfuhai_afinal%20%C2%B7%20GitHub_files/api.js" async="" type="text/javascript"></script><script src="yangfuhai_afinal%20%C2%B7%20GitHub_files/ga.js" async="" type="text/javascript"></script><meta data-pjax-transient="true" name="selected-link" value="repo_source"></head>
+
+
+  <body class="logged_out  env-production windows vis-public tipsy-tooltips">
+    <div class="wrapper">
+      
+      
+      
+      
+
+
+      
+      <div class="header header-logged-out">
+  <div class="container clearfix">
+
+    <a class="header-logo-wordmark" href="https://github.com/">
+      <span class="mega-octicon octicon-logo-github"></span>
+    </a>
+
+    <div class="header-actions">
+        <a class="button primary" href="https://github.com/join">Sign up</a>
+      <a class="button signin" href="https://github.com/login?return_to=%2Fyangfuhai%2Fafinal">Sign in</a>
+    </div>
+
+    <div class="command-bar js-command-bar  in-repository">
+
+      <ul class="top-nav">
+          <li class="explore"><a href="https://github.com/explore">Explore</a></li>
+        <li class="features"><a href="https://github.com/features">Features</a></li>
+          <li class="enterprise"><a href="https://enterprise.github.com/">Enterprise</a></li>
+          <li class="blog"><a href="https://github.com/blog">Blog</a></li>
+      </ul>
+        <form accept-charset="UTF-8" action="/search" class="command-bar-form" id="top_search_form" method="get">
+
+<input data-hotkey=" s" name="q" id="js-command-bar-field" placeholder="Search or type a command" tabindex="1" autocapitalize="off" data-repo="yangfuhai/afinal" data-branch="master" data-sha="5a0797c71245bd3ab16d38bd4567e9e141b8be81" type="text">
+
+    <input name="nwo" value="yangfuhai/afinal" type="hidden">
+
+    <div class="select-menu js-menu-container js-select-menu search-context-select-menu">
+      <span class="minibutton select-menu-button js-menu-target" role="button" aria-haspopup="true">
+        <span class="js-select-button">This repository</span>
+      </span>
+
+      <div class="select-menu-modal-holder js-menu-content js-navigation-container" aria-hidden="true">
+        <div class="select-menu-modal">
+
+          <div class="select-menu-item js-navigation-item js-this-repository-navigation-item selected">
+            <span class="select-menu-item-icon octicon octicon-check"></span>
+            <input class="js-search-this-repository" name="search_target" value="repository" checked="checked" type="radio">
+            <div class="select-menu-item-text js-select-button-text">This repository</div>
+          </div> <!-- /.select-menu-item -->
+
+          <div class="select-menu-item js-navigation-item js-all-repositories-navigation-item">
+            <span class="select-menu-item-icon octicon octicon-check"></span>
+            <input name="search_target" value="global" type="radio">
+            <div class="select-menu-item-text js-select-button-text">All repositories</div>
+          </div> <!-- /.select-menu-item -->
+
+        </div>
+      </div>
+    </div>
+
+  <span original-title="" class="help tooltipped tooltipped-s" aria-label="Show command bar help">
+    <span class="octicon octicon-question"></span>
+  </span>
+
+
+  <input name="ref" value="cmdform" type="hidden">
+
+</form>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+          <div class="site" itemscope="" itemtype="http://schema.org/WebPage">
+    
+    <div class="pagehead repohead instapaper_ignore readability-menu">
+      <div class="container">
+        
+
+<ul class="pagehead-actions">
+
+
+  <li>
+    <a original-title="" href="https://github.com/login?return_to=%2Fyangfuhai%2Fafinal" class="minibutton with-count js-toggler-target star-button tooltipped tooltipped-n" aria-label="You must be signed in to use this feature" rel="nofollow">
+    <span class="octicon octicon-star"></span>Star
+  </a>
+
+    <a class="social-count js-social-count" href="https://github.com/yangfuhai/afinal/stargazers">
+      770
+    </a>
+
+  </li>
+
+    <li>
+      <a original-title="" href="https://github.com/login?return_to=%2Fyangfuhai%2Fafinal" class="minibutton with-count js-toggler-target fork-button tooltipped tooltipped-n" aria-label="You must be signed in to fork a repository" rel="nofollow">
+        <span class="octicon octicon-git-branch"></span>Fork
+      </a>
+      <a href="https://github.com/yangfuhai/afinal/network" class="social-count">
+        626
+      </a>
+    </li>
+</ul>
+
+        <h1 itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb" class="entry-title public">
+          <span class="repo-label"><span>public</span></span>
+          <span class="mega-octicon octicon-repo"></span>
+          <span class="author">
+            <a href="https://github.com/yangfuhai" class="url fn" itemprop="url" rel="author"><span itemprop="title">yangfuhai</span></a>
+          </span>
+          <span class="repohead-name-divider">/</span>
+          <strong><a href="https://github.com/yangfuhai/afinal" class="js-current-repository js-repo-home-link">afinal</a></strong>
+
+          <span class="page-context-loader">
+            <img alt="Octocat-spinner-32" src="yangfuhai_afinal%20%C2%B7%20GitHub_files/octocat-spinner-32.gif" height="16" width="16">
+          </span>
+
+        </h1>
+      </div><!-- /.container -->
+    </div><!-- /.repohead -->
+
+    <div class="container">
+      <div class="repository-with-sidebar repo-container new-discussion-timeline js-new-discussion-timeline with-full-navigation">
+        <div class="repository-sidebar clearfix">
+            
+
+<div class="sunken-menu vertical-right repo-nav js-repo-nav js-repository-container-pjax js-octicon-loaders">
+  <div class="sunken-menu-contents">
+    <ul class="sunken-menu-group">
+      <li original-title="" class="tooltipped tooltipped-w" aria-label="Code">
+        <a href="https://github.com/yangfuhai/afinal" aria-label="Code" class="js-selected-navigation-item sunken-menu-item selected" data-gotokey="c" data-pjax="true" data-selected-links="repo_source repo_downloads repo_commits repo_tags repo_branches /yangfuhai/afinal">
+          <span class="octicon octicon-code"></span> <span class="full-word">Code</span>
+          <img alt="Octocat-spinner-32" class="mini-loader" src="yangfuhai_afinal%20%C2%B7%20GitHub_files/octocat-spinner-32.gif" height="16" width="16">
+</a>      </li>
+
+        <li original-title="" class="tooltipped tooltipped-w" aria-label="Issues">
+          <a href="https://github.com/yangfuhai/afinal/issues" aria-label="Issues" class="js-selected-navigation-item sunken-menu-item js-disable-pjax" data-gotokey="i" data-selected-links="repo_issues /yangfuhai/afinal/issues">
+            <span class="octicon octicon-issue-opened"></span> <span class="full-word">Issues</span>
+            <span class="counter">19</span>
+            <img alt="Octocat-spinner-32" class="mini-loader" src="yangfuhai_afinal%20%C2%B7%20GitHub_files/octocat-spinner-32.gif" height="16" width="16">
+</a>        </li>
+
+      <li original-title="" class="tooltipped tooltipped-w" aria-label="Pull Requests">
+        <a href="https://github.com/yangfuhai/afinal/pulls" aria-label="Pull Requests" class="js-selected-navigation-item sunken-menu-item js-disable-pjax" data-gotokey="p" data-selected-links="repo_pulls /yangfuhai/afinal/pulls">
+            <span class="octicon octicon-git-pull-request"></span> <span class="full-word">Pull Requests</span>
+            <span class="counter">2</span>
+            <img alt="Octocat-spinner-32" class="mini-loader" src="yangfuhai_afinal%20%C2%B7%20GitHub_files/octocat-spinner-32.gif" height="16" width="16">
+</a>      </li>
+
+
+        <li original-title="" class="tooltipped tooltipped-w" aria-label="Wiki">
+          <a href="https://github.com/yangfuhai/afinal/wiki" aria-label="Wiki" class="js-selected-navigation-item sunken-menu-item" data-pjax="true" data-selected-links="repo_wiki /yangfuhai/afinal/wiki">
+            <span class="octicon octicon-book"></span> <span class="full-word">Wiki</span>
+            <img alt="Octocat-spinner-32" class="mini-loader" src="yangfuhai_afinal%20%C2%B7%20GitHub_files/octocat-spinner-32.gif" height="16" width="16">
+</a>        </li>
+    </ul>
+    <div class="sunken-menu-separator"></div>
+    <ul class="sunken-menu-group">
+
+      <li original-title="" class="tooltipped tooltipped-w" aria-label="Pulse">
+        <a href="https://github.com/yangfuhai/afinal/pulse" aria-label="Pulse" class="js-selected-navigation-item sunken-menu-item" data-pjax="true" data-selected-links="pulse /yangfuhai/afinal/pulse">
+          <span class="octicon octicon-pulse"></span> <span class="full-word">Pulse</span>
+          <img alt="Octocat-spinner-32" class="mini-loader" src="yangfuhai_afinal%20%C2%B7%20GitHub_files/octocat-spinner-32.gif" height="16" width="16">
+</a>      </li>
+
+      <li original-title="" class="tooltipped tooltipped-w" aria-label="Graphs">
+        <a href="https://github.com/yangfuhai/afinal/graphs" aria-label="Graphs" class="js-selected-navigation-item sunken-menu-item" data-pjax="true" data-selected-links="repo_graphs repo_contributors /yangfuhai/afinal/graphs">
+          <span class="octicon octicon-graph"></span> <span class="full-word">Graphs</span>
+          <img alt="Octocat-spinner-32" class="mini-loader" src="yangfuhai_afinal%20%C2%B7%20GitHub_files/octocat-spinner-32.gif" height="16" width="16">
+</a>      </li>
+
+      <li original-title="" class="tooltipped tooltipped-w" aria-label="Network">
+        <a href="https://github.com/yangfuhai/afinal/network" aria-label="Network" class="js-selected-navigation-item sunken-menu-item js-disable-pjax" data-selected-links="repo_network /yangfuhai/afinal/network">
+          <span class="octicon octicon-git-branch"></span> <span class="full-word">Network</span>
+          <img alt="Octocat-spinner-32" class="mini-loader" src="yangfuhai_afinal%20%C2%B7%20GitHub_files/octocat-spinner-32.gif" height="16" width="16">
+</a>      </li>
+    </ul>
+
+
+  </div>
+</div>
+
+              <div class="only-with-full-nav">
+                
+
+  
+
+<div class="clone-url open" data-protocol-type="http" data-url="/users/set_protocol?protocol_selector=http&amp;protocol_type=clone">
+  <h3><strong>HTTPS</strong> clone URL</h3>
+  <div class="clone-url-box">
+    <input class="clone js-url-field" value="https://github.com/yangfuhai/afinal.git" readonly="readonly" type="text">
+
+    <span aria-label="copy to clipboard" class="js-zeroclipboard url-box-clippy minibutton zeroclipboard-button" data-clipboard-text="https://github.com/yangfuhai/afinal.git" data-copied-hint="copied!"><span class="octicon octicon-clippy"></span></span>
+  </div>
+</div>
+
+  
+
+<div class="clone-url " data-protocol-type="subversion" data-url="/users/set_protocol?protocol_selector=subversion&amp;protocol_type=clone">
+  <h3><strong>Subversion</strong> checkout URL</h3>
+  <div class="clone-url-box">
+    <input class="clone js-url-field" value="https://github.com/yangfuhai/afinal" readonly="readonly" type="text">
+
+    <span aria-label="copy to clipboard" class="js-zeroclipboard url-box-clippy minibutton zeroclipboard-button" data-clipboard-text="https://github.com/yangfuhai/afinal" data-copied-hint="copied!"><span class="octicon octicon-clippy"></span></span>
+  </div>
+</div>
+
+
+<p class="clone-options">You can clone with
+      <a href="#" class="js-clone-selector" data-protocol="http">HTTPS</a>
+      or <a href="#" class="js-clone-selector" data-protocol="subversion">Subversion</a>.
+  <span original-title="" class="help tooltipped tooltipped-n" aria-label="Get help on which URL is right for you.">
+    <a href="https://help.github.com/articles/which-remote-url-should-i-use">
+    <span class="octicon octicon-question"></span>
+    </a>
+  </span>
+</p>
+
+
+  <a href="http://windows.github.com/" class="minibutton sidebar-button">
+    <span class="octicon octicon-device-desktop"></span>
+    Clone in Desktop
+  </a>
+
+                <a href="https://github.com/yangfuhai/afinal/archive/master.zip" class="minibutton sidebar-button" title="Download this repository as a zip file" rel="nofollow">
+                  <span class="octicon octicon-cloud-download"></span>
+                  Download ZIP
+                </a>
+              </div>
+        </div><!-- /.repository-sidebar -->
+
+        <div id="js-repo-pjax-container" class="repository-content context-loader-container" data-pjax-container="">
+  
+
+<span id="js-show-full-navigation"></span>
+
+<div class="repository-meta js-details-container ">
+    <div class="repository-description js-details-show">
+      <p>Afinal是一个android的ioc，orm框架，内置了四大模块功
+能：FinalAcitivity,FinalBitmap,FinalDb,FinalHttp。通过finalActivity，我们可以通过注解的
+方式进行绑定ui和事件。通过finalBitmap，我们可以方便的加载bitmap图片，而无需考虑oom等问题。通过finalDB模块，我们一行
+代码就可以对android的sqlite数据库进行增删改查。通过FinalHttp模块，我们可以以ajax形式请求http数据。详情请通过以下网
+址查看。</p>
+    </div>
+
+    <div class="repository-website js-details-show">
+      <p><a href="http://www.afinal.org/" rel="nofollow">http://www.afinal.org</a></p>
+    </div>
+
+
+</div>
+
+<div class="capped-box overall-summary ">
+
+  <div class="stats-switcher-viewport js-stats-switcher-viewport">
+
+    <ul class="numbers-summary">
+      <li class="commits">
+        <a data-pjax="" href="https://github.com/yangfuhai/afinal/commits/master">
+            <span class="num">
+              <span class="octicon octicon-history"></span>
+              113
+            </span>
+            commits
+        </a>
+      </li>
+      <li>
+        <a data-pjax="" href="https://github.com/yangfuhai/afinal/branches">
+          <span class="num">
+            <span class="octicon octicon-git-branch"></span>
+            2
+          </span>
+          branches
+        </a>
+      </li>
+
+      <li>
+        <a data-pjax="" href="https://github.com/yangfuhai/afinal/releases">
+          <span class="num">
+            <span class="octicon octicon-tag"></span>
+            0
+          </span>
+          releases
+        </a>
+      </li>
+
+      <li>
+        
+  <a href="https://github.com/yangfuhai/afinal/graphs/contributors">
+    <span class="num">
+      <span class="octicon octicon-organization"></span>
+      5
+    </span>
+    contributors
+  </a>
+      </li>
+    </ul>
+
+      <div class="repository-lang-stats">
+        <ol class="repository-lang-stats-numbers">
+          <li>
+              <a href="https://github.com/yangfuhai/afinal/search?l=java">
+                <span class="color-block language-color" style="background-color:#b07219;"></span>
+                <span class="lang">Java</span>
+                <span class="percent">100%</span>
+              </a>
+          </li>
+        </ol>
+      </div>
+  </div>
+
+</div>
+
+  <div original-title="" class="tooltipped tooltipped-s" aria-label="Show language statistics">
+    <a href="#" class="repository-lang-stats-graph js-toggle-lang-stats" style="background-color:#b07219">
+  <span class="language-color" style="width:100%; background-color:#b07219;" itemprop="keywords">Java</span>
+    </a>
+  </div>
+
+
+
+<div class="file-navigation in-mid-page">
+    <a original-title="" href="https://github.com/yangfuhai/afinal/compare" aria-label="Compare, review, create a pull request" class="minibutton compact primary tooltipped tooltipped-s" data-pjax="">
+      <span class="octicon octicon-git-compare"></span>
+    </a>
+
+  
+
+<div class="select-menu js-menu-container js-select-menu">
+  <span class="minibutton select-menu-button js-menu-target" data-hotkey="w" data-master-branch="master" data-ref="master" role="button" aria-label="Switch branches or tags" tabindex="0" aria-haspopup="true">
+    <span class="octicon octicon-git-branch"></span>
+    <i>branch:</i>
+    <span class="js-select-button">master</span>
+  </span>
+
+  <div class="select-menu-modal-holder js-menu-content js-navigation-container" data-pjax="" aria-hidden="true">
+
+    <div class="select-menu-modal">
+      <div class="select-menu-header">
+        <span class="select-menu-title">Switch branches/tags</span>
+        <span class="octicon octicon-remove-close js-menu-close"></span>
+      </div> <!-- /.select-menu-header -->
+
+      <div class="select-menu-filters">
+        <div class="select-menu-text-filter">
+          <input aria-label="Filter branches/tags" id="context-commitish-filter-field" class="js-filterable-field js-navigation-enable" placeholder="Filter branches/tags" type="text">
+        </div>
+        <div class="select-menu-tabs">
+          <ul>
+            <li class="select-menu-tab">
+              <a href="#" data-tab-filter="branches" class="js-select-menu-tab">Branches</a>
+            </li>
+            <li class="select-menu-tab">
+              <a href="#" data-tab-filter="tags" class="js-select-menu-tab">Tags</a>
+            </li>
+          </ul>
+        </div><!-- /.select-menu-tabs -->
+      </div><!-- /.select-menu-filters -->
+
+      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="branches">
+
+        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
+
+
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/yangfuhai/afinal/tree/gh-pages" data-name="gh-pages" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text js-select-button-text css-truncate-target" title="gh-pages">gh-pages</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item selected">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/yangfuhai/afinal/tree/master" data-name="master" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text js-select-button-text css-truncate-target" title="master">master</a>
+            </div> <!-- /.select-menu-item -->
+        </div>
+
+          <div class="select-menu-no-results">Nothing to show</div>
+      </div> <!-- /.select-menu-list -->
+
+      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="tags">
+        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
+
+
+        </div>
+
+        <div class="select-menu-no-results">Nothing to show</div>
+      </div> <!-- /.select-menu-list -->
+
+    </div> <!-- /.select-menu-modal -->
+  </div> <!-- /.select-menu-modal-holder -->
+</div> <!-- /.select-menu -->
+
+
+  <div class="breadcrumb"><span class="repo-root js-repo-root"><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="https://github.com/yangfuhai/afinal" data-branch="master" data-direction="back" data-pjax="true" itemscope="url"><span itemprop="title">afinal</span></a></span></span><span class="separator"> / </span><form original-title="" action="/login?return_to=%2Fyangfuhai%2Fafinal" aria-label="Sign in to make or propose changes" class="js-new-blob-form tooltipped tooltipped-e new-file-link" method="post"><span aria-label="Sign in to make or propose changes" class="js-new-blob-submit octicon octicon-file-add" data-test-id="create-new-git-file" role="button"></span></form></div>
+</div>
+
+
+
+<a href="https://github.com/yangfuhai/afinal/find/master" data-hotkey="t" class="js-show-file-finder" style="display:none" data-pjax="">Show File Finder</a>
+<div class="bubble files-bubble">
+
+  
+  <div class="commit commit-tease js-details-container">
+      <a href="https://github.com/yangfuhai/afinal/commit/654f7a213c4d2f665507fd2159a14a600fb821c7" class="comment-count" anchor="comments" data-pjax="">
+        1 comment <span class="octicon octicon-comment"></span>
+      </a>
+    <p class="commit-title ">
+        <a href="https://github.com/yangfuhai/afinal/commit/654f7a213c4d2f665507fd2159a14a600fb821c7" class="message" data-pjax="true" title="Update SoftMemoryCacheImpl.java">Update SoftMemoryCacheImpl.java</a>
+        
+    </p>
+    <div class="commit-meta">
+      <span class="js-zeroclipboard zeroclipboard-link" data-clipboard-text="654f7a213c4d2f665507fd2159a14a600fb821c7" data-copied-hint="copied!" title="Copy SHA"><span class="octicon octicon-clippy"></span></span>
+      <a href="https://github.com/yangfuhai/afinal/commit/654f7a213c4d2f665507fd2159a14a600fb821c7" class="sha-block" data-pjax="">latest commit <span class="sha">654f7a213c</span></a>
+
+      <div class="authorship">
+        <img class="gravatar" src="yangfuhai_afinal%20%C2%B7%20GitHub_files/4487046aa3b9bb9d6c4f7493b00969d5.jpg" height="20" width="20">
+        <span class="author-name"><a href="https://github.com/yangfuhai" data-skip-pjax="true" rel="author">yangfuhai</a></span>
+        authored <time class="js-relative-date updated" datetime="2013-10-15T07:59:24-07:00" title="2013-10-15 07:59:24">4 months ago</time>
+
+      </div>
+    </div>
+  </div>
+
+  <table class="files" data-pjax="">
+
+    
+<tbody class="" data-url="/yangfuhai/afinal/file-list/master">
+    <tr>
+      <td class="icon">
+        <span class="octicon octicon-file-directory"></span>
+        <img alt="Octocat-spinner-32" class="spinner" src="yangfuhai_afinal%20%C2%B7%20GitHub_files/octocat-spinner-32.gif" height="16" width="16">
+      </td>
+      <td class="content">
+        <span class="css-truncate css-truncate-target"><a href="https://github.com/yangfuhai/afinal/tree/master/bin" class="js-directory-link" id="c1111bd512b29e821b120b86446026b8-1dabda7135081efb1400cd499dc737aecb1e810d" title="bin">bin</a></span>
+      </td>
+      <td class="message">
+        <span class="css-truncate css-truncate-target"><a href="https://github.com/yangfuhai/afinal/commit/7399f2c789a38ffc26fe098e1a75572e5fd482f1" class="message" data-pjax="true" title="添加jar包">添加jar包</a></span>
+      </td>
+      <td class="age"><span class="css-truncate css-truncate-target"><time class="js-relative-date" data-title-format="YYYY-MM-DD HH:mm:ss" datetime="2013-07-27T21:35:28-07:00" title="2013-07-28 12:35:28">7 months ago</time></span></td>
+    </tr>
+    <tr>
+      <td class="icon">
+        <span class="octicon octicon-file-directory"></span>
+        <img alt="Octocat-spinner-32" class="spinner" src="yangfuhai_afinal%20%C2%B7%20GitHub_files/octocat-spinner-32.gif" height="16" width="16">
+      </td>
+      <td class="content">
+        <span class="css-truncate css-truncate-target"><a href="https://github.com/yangfuhai/afinal/tree/master/doc" class="js-directory-link" id="9a09b4dfda82e3e665e31092d1c3ec8d-5fb216b0d8ffaf81b269d43cfaa7c1f6c565f1c2" title="doc">doc</a></span>
+      </td>
+      <td class="message">
+        <span class="css-truncate css-truncate-target"><a href="https://github.com/yangfuhai/afinal/commit/d5e0f97f354f3e483af00d48a223605c3444f229" class="message" data-pjax="true" title="Finalbitmap 添加 设置压缩格式接口，解决透明图片变黑的问题">Finalbitmap 添加 设置压缩格式接口，解决透明图片变黑的问题</a></span>
+      </td>
+      <td class="age"><span class="css-truncate css-truncate-target"><time class="js-relative-date" data-title-format="YYYY-MM-DD HH:mm:ss" datetime="2013-03-26T04:00:43-07:00" title="2013-03-26 19:00:43">11 months ago</time></span></td>
+    </tr>
+    <tr>
+      <td class="icon">
+        <span class="octicon octicon-file-directory"></span>
+        <img alt="Octocat-spinner-32" class="spinner" src="yangfuhai_afinal%20%C2%B7%20GitHub_files/octocat-spinner-32.gif" height="16" width="16">
+      </td>
+      <td class="content">
+        <span class="css-truncate css-truncate-target"><a href="https://github.com/yangfuhai/afinal/tree/master/src" class="js-directory-link" id="25d902c24283ab8cfbac54dfa101ad31-42b666ccafa979bae9f08abf85faaaee5753e080" title="src">src</a></span>
+      </td>
+      <td class="message">
+        <span class="css-truncate css-truncate-target"><a href="https://github.com/yangfuhai/afinal/commit/654f7a213c4d2f665507fd2159a14a600fb821c7" class="message" data-pjax="true" title="Update SoftMemoryCacheImpl.java">Update SoftMemoryCacheImpl.java</a></span>
+      </td>
+      <td class="age"><span class="css-truncate css-truncate-target"><time class="js-relative-date" data-title-format="YYYY-MM-DD HH:mm:ss" datetime="2013-10-15T07:59:24-07:00" title="2013-10-15 22:59:24">4 months ago</time></span></td>
+    </tr>
+    <tr>
+      <td class="icon">
+        <span class="octicon octicon-file-directory"></span>
+        <img alt="Octocat-spinner-32" class="spinner" src="yangfuhai_afinal%20%C2%B7%20GitHub_files/octocat-spinner-32.gif" height="16" width="16">
+      </td>
+      <td class="content">
+        <span class="css-truncate css-truncate-target"><a href="https://github.com/yangfuhai/afinal/tree/master/src_version_list" class="js-directory-link" id="e67fdcbd143bf8c68f43d6fb710a0196-4989dfc201fa57aa0333c511944814ece6a34e7a" title="src_version_list">src_version_list</a></span>
+      </td>
+      <td class="message">
+        <span class="css-truncate css-truncate-target"><a href="https://github.com/yangfuhai/afinal/commit/7399f2c789a38ffc26fe098e1a75572e5fd482f1" class="message" data-pjax="true" title="添加jar包">添加jar包</a></span>
+      </td>
+      <td class="age"><span class="css-truncate css-truncate-target"><time class="js-relative-date" data-title-format="YYYY-MM-DD HH:mm:ss" datetime="2013-07-27T21:35:28-07:00" title="2013-07-28 12:35:28">7 months ago</time></span></td>
+    </tr>
+    <tr>
+      <td class="icon">
+        <span class="octicon octicon-file-text"></span>
+        <img alt="Octocat-spinner-32" class="spinner" src="yangfuhai_afinal%20%C2%B7%20GitHub_files/octocat-spinner-32.gif" height="16" width="16">
+      </td>
+      <td class="content">
+        <span class="css-truncate css-truncate-target"><a href="https://github.com/yangfuhai/afinal/blob/master/README.md" class="js-directory-link" id="04c6e90faac2675aa89e2176d2eec7d8-612167f839f170064edec2dac58764682985cff0" title="README.md">README.md</a></span>
+      </td>
+      <td class="message">
+        <span class="css-truncate css-truncate-target"><a href="https://github.com/yangfuhai/afinal/commit/b8590a3fe704a43a592cac33c9a9e9322e1892f5" class="message" data-pjax="true" title="Update README.md">Update README.md</a></span>
+      </td>
+      <td class="age"><span class="css-truncate css-truncate-target"><time class="js-relative-date" data-title-format="YYYY-MM-DD HH:mm:ss" datetime="2013-10-07T23:15:53-07:00" title="2013-10-08 14:15:53">5 months ago</time></span></td>
+    </tr>
+</tbody>
+
+  </table>
+</div>
+
+  <div id="readme" class="clearfix announce instapaper_body md">
+    <span class="name">
+      <span class="octicon octicon-book"></span>
+      README.md
+    </span>
+
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1>
+<a name="afinal交流平台" class="anchor" href="#afinal%E4%BA%A4%E6%B5%81%E5%B9%B3%E5%8F%B0"><span class="octicon octicon-link"></span></a>afinal交流平台</h1>
+
+<ul>
+<li>QQ群：192341294（群1，2000未满）    246710918（群2，1000未满）</li>
+<li>网址：<a href="http://www.afinal.org/">http://www.afinal.org</a>
+</li>
+</ul><hr><h1>
+<a name="-afinal简介" class="anchor" href="#-afinal%E7%AE%80%E4%BB%8B"><span class="octicon octicon-link"></span></a><a href="https://github-camo.global.ssl.fastly.net/c6e3b3f79af58e45555a754cf0814f0e5eb32b9a/687474703a2f2f636f64652e676f6f676c652e636f6d2f702f6166696e616c2f6c6f676f3f6363743d31333531353136353335" target="_blank"><img src="yangfuhai_afinal%20%C2%B7%20GitHub_files/687474703a2f2f636f64652e676f6f676c652e636f6d2f702f6166696e61.png" alt="mahua" style="max-width:100%;"></a> Afinal简介</h1>
+
+<ul>
+<li>Afinal 是一个android的sqlite orm 和 ioc 框架。同时封装了android中的http框架，使其更加简单易用；</li>
+<li>使用finalBitmap，无需考虑bitmap在android中加载的时候oom的问题和快速滑动的时候图片加载位置错位等问题。</li>
+<li>Afinal的宗旨是简洁，快速。约定大于配置的方式。尽量一行代码完成所有事情。</li>
+</ul><h2>
+<a name="目前afinal主要有四大模块" class="anchor" href="#%E7%9B%AE%E5%89%8Dafinal%E4%B8%BB%E8%A6%81%E6%9C%89%E5%9B%9B%E5%A4%A7%E6%A8%A1%E5%9D%97"><span class="octicon octicon-link"></span></a>目前Afinal主要有四大模块：</h2>
+
+<ul>
+<li><p>FinalDB模块：android中的orm框架，一行代码就可以进行增删改查。支持一对多，多对一等查询。</p></li>
+<li><p>FinalActivity模块：android中的ioc框架，完全注解方式就可以进行UI绑定和事件绑定。无需findViewById和setClickListener等。</p></li>
+<li><p>FinalHttp模块：通过httpclient进行封装http数据请求，支持ajax方式加载。</p></li>
+<li><p>FinalBitmap模块：通过FinalBitmap，imageview加载bitmap的时候无需考虑bitmap加载过程中出现
+的oom和android容器快速滑动时候出现的图片错位等现象。FinalBitmap可以配置线程加载线程数量，缓存大小，缓存路径，加载显示动画
+等。FinalBitmap的内存管理使用lru算法，没有使用弱引用（android2.3以后google已经不建议使用弱引
+用，android2.3后强行回收软引用和弱引用，详情查看android官方文档），更好的管理bitmap内存。FinalBitmap可以自定义
+下载器，用来扩展其他协议显示网络图片，比如ftp等。同时可以自定义bitmap显示器，在imageview显示图片的时候播放动画等（默认是渐变动
+画显示）。</p></li>
+</ul><hr><h2>
+<a name="使用afinal快速开发框架需要有以下权限" class="anchor" href="#%E4%BD%BF%E7%94%A8afinal%E5%BF%AB%E9%80%9F%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%E9%9C%80%E8%A6%81%E6%9C%89%E4%BB%A5%E4%B8%8B%E6%9D%83%E9%99%90"><span class="octicon octicon-link"></span></a>使用afinal快速开发框架需要有以下权限：</h2>
+
+<div class="highlight highlight-xml"><pre><span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.INTERNET"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.WRITE_EXTERNAL_STORAGE"</span> <span class="nt">/&gt;</span>
+</pre></div>
+
+<ul>
+<li>第一个是访问网络</li>
+<li>第二个是访问sdcard</li>
+<li>访问网络是请求网络图片的时候需要或者是http数据请求时候需要，访问sdcard是图片缓存的需要。</li>
+</ul><hr><h2>
+<a name="finaldb使用方法" class="anchor" href="#finaldb%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="octicon octicon-link"></span></a>FinalDB使用方法：</h2>
+
+<p>关于finalDb的更多介绍，请点击<a href="http://my.oschina.net/yangfuhai/blog/87459">这里</a></p>
+
+<div class="highlight highlight-java"><pre><span class="n">FinalDb</span> <span class="n">db</span> <span class="o">=</span> <span class="n">FinalDb</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+<span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">();</span> <span class="c1">//这里需要注意的是User对象必须有id属性，或者有通过@ID注解的属性</span>
+<span class="n">user</span><span class="o">.</span><span class="na">setEmail</span><span class="o">(</span><span class="s">"mail@tsz.net"</span><span class="o">);</span>
+<span class="n">user</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">"michael yang"</span><span class="o">);</span>
+<span class="n">db</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
+</pre></div>
+
+<hr><h2>
+<a name="finaldb-onetomany懒加载使用方法" class="anchor" href="#finaldb-onetomany%E6%87%92%E5%8A%A0%E8%BD%BD%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="octicon octicon-link"></span></a>FinalDB OneToMany懒加载使用方法：</h2>
+
+<p>模型定义：</p>
+
+<div class="highlight highlight-java"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Parent</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>
+    <span class="nd">@OneToMany</span><span class="o">(</span><span class="n">manyColumn</span> <span class="o">=</span> <span class="s">"parentId"</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="n">OneToManyLazyLoader</span><span class="o">&lt;</span><span class="n">Parent</span> <span class="o">,</span><span class="n">Child</span><span class="o">&gt;</span> <span class="n">children</span><span class="o">;</span>
+    <span class="cm">/*....*/</span>
+<span class="o">}</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Child</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">id</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">text</span><span class="o">;</span>
+    <span class="nd">@ManyToOne</span><span class="o">(</span><span class="n">column</span> <span class="o">=</span> <span class="s">"parentId"</span><span class="o">)</span>
+    <span class="kd">private</span>  <span class="n">Parent</span>  <span class="n">parent</span><span class="o">;</span>
+    <span class="cm">/*....*/</span>
+<span class="o">}</span>
+</pre></div>
+
+<p>使用：</p>
+
+<div class="highlight highlight-java"><pre><span class="n">List</span><span class="o">&lt;</span><span class="n">Parent</span><span class="o">&gt;</span> <span class="n">all</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="na">findAll</span><span class="o">(</span><span class="n">Parent</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+        <span class="k">for</span><span class="o">(</span> <span class="n">Parent</span>  <span class="n">item</span> <span class="o">:</span> <span class="n">all</span><span class="o">){</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">item</span><span class="o">.</span><span class="na">getChildren</span> <span class="o">().</span><span class="na">getList</span><span class="o">().</span><span class="na">size</span><span class="o">()&gt;</span><span class="mi">0</span><span class="o">)</span>
+                <span class="n">Toast</span><span class="o">.</span><span class="na">makeText</span><span class="o">(</span><span class="k">this</span><span class="o">,</span><span class="n">item</span><span class="o">.</span><span class="na">getText</span><span class="o">()</span> <span class="o">+</span> <span class="n">item</span><span class="o">.</span><span class="na">getChildren</span><span class="o">().</span><span class="na">getList</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">getText</span><span class="o">(),</span><span class="n">Toast</span><span class="o">.</span><span class="na">LENGTH_LONG</span><span class="o">).</span><span class="na">show</span><span class="o">();</span>
+        <span class="o">}</span>
+</pre></div>
+
+<hr><h2>
+<a name="finalactivity使用方法" class="anchor" href="#finalactivity%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="octicon octicon-link"></span></a>FinalActivity使用方法：</h2>
+
+<ul>
+<li>完全注解方式就可以进行UI绑定和事件绑定</li>
+<li>无需findViewById和setClickListener等</li>
+</ul><div class="highlight highlight-java"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">AfinalDemoActivity</span> <span class="kd">extends</span> <span class="n">FinalActivity</span> <span class="o">{</span>
+
+    <span class="c1">//无需调用findViewById和setOnclickListener等</span>
+    <span class="nd">@ViewInject</span><span class="o">(</span><span class="n">id</span><span class="o">=</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">button</span><span class="o">,</span><span class="n">click</span><span class="o">=</span><span class="s">"btnClick"</span><span class="o">)</span> <span class="n">Button</span> <span class="n">button</span><span class="o">;</span>
+    <span class="nd">@ViewInject</span><span class="o">(</span><span class="n">id</span><span class="o">=</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">textView</span><span class="o">)</span> <span class="n">TextView</span> <span class="n">textView</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+       <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+       <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">main</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">btnClick</span><span class="o">(</span><span class="n">View</span> <span class="n">v</span><span class="o">){</span>
+       <span class="n">textView</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">"text set form button"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+<p>*在其他侵入式框架下使用（如ActionBarShelock）</p>
+
+<div class="highlight highlight-java"><pre>     <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+       <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+        <span class="n">setContentView</span><span class="o">(</span><span class="n">view</span><span class="o">);</span>
+        <span class="n">FinalActivity</span><span class="o">.</span><span class="na">initInjectedView</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+     <span class="o">}</span>
+</pre></div>
+
+<p>*在Fragment中使用</p>
+
+<div class="highlight highlight-java"><pre>     <span class="kd">public</span> <span class="n">View</span> <span class="nf">onCreateView</span><span class="o">(</span><span class="n">LayoutInflater</span> <span class="n">inflater</span><span class="o">,</span> <span class="n">ViewGroup</span> <span class="n">container</span><span class="o">,</span>
+          <span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+       <span class="n">View</span> <span class="n">viewRoot</span> <span class="o">=</span> <span class="n">inflater</span><span class="o">.</span><span class="na">inflate</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">map_frame</span><span class="o">,</span> <span class="n">container</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
+       <span class="n">FinalActivity</span><span class="o">.</span><span class="na">initInjectedView</span><span class="o">(</span><span class="k">this</span><span class="o">,</span><span class="n">viewRoot</span><span class="o">);</span>
+    <span class="o">}</span>
+</pre></div>
+
+<h2>
+<a name="finalhttp使用方法" class="anchor" href="#finalhttp%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="octicon octicon-link"></span></a>FinalHttp使用方法：</h2>
+
+<h3>
+<a name="普通get方法" class="anchor" href="#%E6%99%AE%E9%80%9Aget%E6%96%B9%E6%B3%95"><span class="octicon octicon-link"></span></a>普通get方法</h3>
+
+<div class="highlight highlight-java"><pre><span class="n">FinalHttp</span> <span class="n">fh</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FinalHttp</span><span class="o">();</span>
+<span class="n">fh</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"http://www.yangfuhai.com"</span><span class="o">,</span> <span class="k">new</span> <span class="n">AjaxCallBack</span><span class="o">(){</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onLoading</span><span class="o">(</span><span class="kt">long</span> <span class="n">count</span><span class="o">,</span> <span class="kt">long</span> <span class="n">current</span><span class="o">)</span> <span class="o">{</span> <span class="c1">//每1秒钟自动被回调一次</span>
+            <span class="n">textView</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">current</span><span class="o">+</span><span class="s">"/"</span><span class="o">+</span><span class="n">count</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSuccess</span><span class="o">(</span><span class="n">String</span> <span class="n">t</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">textView</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">t</span><span class="o">==</span><span class="kc">null</span><span class="o">?</span><span class="s">"null"</span><span class="o">:</span><span class="n">t</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onStart</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">//开始http请求的时候回调</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onFailure</span><span class="o">(</span><span class="n">Throwable</span> <span class="n">t</span><span class="o">,</span> <span class="n">String</span> <span class="n">strMsg</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//加载失败的时候回调</span>
+    <span class="o">}</span>
+<span class="o">});</span>
+</pre></div>
+
+<h3>
+<a name="使用finalhttp上传文件-或者-提交数据-到服务器post方法" class="anchor" href="#%E4%BD%BF%E7%94%A8finalhttp%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6-%E6%88%96%E8%80%85-%E6%8F%90%E4%BA%A4%E6%95%B0%E6%8D%AE-%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8post%E6%96%B9%E6%B3%95"><span class="octicon octicon-link"></span></a>使用FinalHttp上传文件 或者 提交数据 到服务器（post方法）</h3>
+
+<p>文件上传到服务器，服务器如何接收，请查看<a href="http://www.oschina.net/question/105836_85825">这里</a></p>
+
+<div class="highlight highlight-java"><pre>  <span class="n">AjaxParams</span> <span class="n">params</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AjaxParams</span><span class="o">();</span>
+  <span class="n">params</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"username"</span><span class="o">,</span> <span class="s">"michael yang"</span><span class="o">);</span>
+  <span class="n">params</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"password"</span><span class="o">,</span> <span class="s">"123456"</span><span class="o">);</span>
+  <span class="n">params</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"email"</span><span class="o">,</span> <span class="s">"test@tsz.net"</span><span class="o">);</span>
+  <span class="n">params</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"profile_picture"</span><span class="o">,</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">"/mnt/sdcard/pic.jpg"</span><span class="o">));</span> <span class="c1">// 上传文件</span>
+  <span class="n">params</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"profile_picture2"</span><span class="o">,</span> <span class="n">inputStream</span><span class="o">);</span> <span class="c1">// 上传数据流</span>
+  <span class="n">params</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"profile_picture3"</span><span class="o">,</span> <span class="k">new</span> <span class="n">ByteArrayInputStream</span><span class="o">(</span><span class="n">bytes</span><span class="o">));</span> <span class="c1">// 提交字节流</span>
+
+  <span class="n">FinalHttp</span> <span class="n">fh</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FinalHttp</span><span class="o">();</span>
+  <span class="n">fh</span><span class="o">.</span><span class="na">post</span><span class="o">(</span><span class="s">"http://www.yangfuhai.com"</span><span class="o">,</span> <span class="n">params</span><span class="o">,</span> <span class="k">new</span> <span class="n">AjaxCallBack</span><span class="o">(){</span>
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onLoading</span><span class="o">(</span><span class="kt">long</span> <span class="n">count</span><span class="o">,</span> <span class="kt">long</span> <span class="n">current</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">textView</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">current</span><span class="o">+</span><span class="s">"/"</span><span class="o">+</span><span class="n">count</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSuccess</span><span class="o">(</span><span class="n">String</span> <span class="n">t</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">textView</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">t</span><span class="o">==</span><span class="kc">null</span><span class="o">?</span><span class="s">"null"</span><span class="o">:</span><span class="n">t</span><span class="o">);</span>
+        <span class="o">}</span>
+  <span class="o">});</span>
+</pre></div>
+
+<hr><h3>
+<a name="使用finalhttp下载文件" class="anchor" href="#%E4%BD%BF%E7%94%A8finalhttp%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6"><span class="octicon octicon-link"></span></a>使用FinalHttp下载文件：</h3>
+
+<ul>
+<li>支持断点续传，随时停止下载任务 或者 开始任务</li>
+</ul><div class="highlight highlight-java"><pre>    <span class="n">FinalHttp</span> <span class="n">fh</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FinalHttp</span><span class="o">();</span>  
+    <span class="c1">//调用download方法开始下载</span>
+    <span class="n">HttpHandler</span> <span class="n">handler</span> <span class="o">=</span> <span class="n">fh</span><span class="o">.</span><span class="na">download</span><span class="o">(</span><span class="s">"http://www.xxx.com/下载路径/xxx.apk"</span><span class="o">,</span> <span class="c1">//这里是下载的路径</span>
+    <span class="kc">true</span><span class="o">,</span><span class="c1">//true:断点续传 false:不断点续传（全新下载）</span>
+    <span class="s">"/mnt/sdcard/testapk.apk"</span><span class="o">,</span> <span class="c1">//这是保存到本地的路径</span>
+    <span class="k">new</span> <span class="nf">AjaxCallBack</span><span class="o">()</span> <span class="o">{</span>  
+                <span class="nd">@Override</span>  
+                <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onLoading</span><span class="o">(</span><span class="kt">long</span> <span class="n">count</span><span class="o">,</span> <span class="kt">long</span> <span class="n">current</span><span class="o">)</span> <span class="o">{</span>  
+                     <span class="n">textView</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">"下载进度："</span><span class="o">+</span><span class="n">current</span><span class="o">+</span><span class="s">"/"</span><span class="o">+</span><span class="n">count</span><span class="o">);</span>  
+                <span class="o">}</span>  
+
+                <span class="nd">@Override</span>  
+                <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSuccess</span><span class="o">(</span><span class="n">File</span> <span class="n">t</span><span class="o">)</span> <span class="o">{</span>  
+                    <span class="n">textView</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">t</span><span class="o">==</span><span class="kc">null</span><span class="o">?</span><span class="s">"null"</span><span class="o">:</span><span class="n">t</span><span class="o">.</span><span class="na">getAbsoluteFile</span><span class="o">().</span><span class="na">toString</span><span class="o">());</span>  
+                <span class="o">}</span>  
+
+            <span class="o">});</span>  
+
+
+   <span class="c1">//调用stop()方法停止下载</span>
+   <span class="n">handler</span><span class="o">.</span><span class="na">stop</span><span class="o">();</span>
+
+
+</pre></div>
+
+<h2>
+<a name="finalbitmap-使用方法" class="anchor" href="#finalbitmap-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="octicon octicon-link"></span></a>FinalBitmap 使用方法</h2>
+
+<p>加载网络图片就一行代码 fb.display(imageView,url) ,更多的display重载请看<a href="https://github.com/yangfuhai/afinal/tree/master/doc">帮助文档</a></p>
+
+<div class="highlight highlight-java"><pre><span class="kd">private</span> <span class="n">GridView</span> <span class="n">gridView</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">FinalBitmap</span> <span class="n">fb</span><span class="o">;</span>
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+        <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">images</span><span class="o">);</span>
+
+        <span class="n">gridView</span> <span class="o">=</span> <span class="o">(</span><span class="n">GridView</span><span class="o">)</span> <span class="n">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">gridView</span><span class="o">);</span>
+        <span class="n">gridView</span><span class="o">.</span><span class="na">setAdapter</span><span class="o">(</span><span class="n">mAdapter</span><span class="o">);</span>
+
+        <span class="n">fb</span> <span class="o">=</span> <span class="n">FinalBitmap</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="k">this</span><span class="o">);</span><span class="c1">//初始化FinalBitmap模块</span>
+        <span class="n">fb</span><span class="o">.</span><span class="na">configLoadingImage</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">downloading</span><span class="o">);</span>
+        <span class="c1">//这里可以进行其他十几项的配置，也可以不用配置，配置之后必须调用init()函数,才生效</span>
+        <span class="c1">//fb.configBitmapLoadThreadSize(int size)</span>
+        <span class="c1">//fb.configBitmapMaxHeight(bitmapHeight)</span>
+    <span class="o">}</span>
+
+
+<span class="c1">///////////////////////////adapter getView////////////////////////////////////////////</span>
+
+<span class="kd">public</span> <span class="n">View</span> <span class="nf">getView</span><span class="o">(</span><span class="kt">int</span> <span class="n">position</span><span class="o">,</span> <span class="n">View</span> <span class="n">convertView</span><span class="o">,</span> <span class="n">ViewGroup</span> <span class="n">parent</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">ImageView</span> <span class="n">iv</span><span class="o">;</span>
+    <span class="k">if</span><span class="o">(</span><span class="n">convertView</span> <span class="o">==</span> <span class="kc">null</span><span class="o">){</span>
+        <span class="n">convertView</span> <span class="o">=</span> <span class="n">View</span><span class="o">.</span><span class="na">inflate</span><span class="o">(</span><span class="n">BitmapCacheActivity</span><span class="o">.</span><span class="na">this</span><span class="o">,</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">image_item</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+        <span class="n">iv</span> <span class="o">=</span> <span class="o">(</span><span class="n">ImageView</span><span class="o">)</span> <span class="n">convertView</span><span class="o">.</span><span class="na">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">imageView</span><span class="o">);</span>
+        <span class="n">iv</span><span class="o">.</span><span class="na">setScaleType</span><span class="o">(</span><span class="n">ScaleType</span><span class="o">.</span><span class="na">CENTER_CROP</span><span class="o">);</span>
+        <span class="n">convertView</span><span class="o">.</span><span class="na">setTag</span><span class="o">(</span><span class="n">iv</span><span class="o">);</span>
+    <span class="o">}</span><span class="k">else</span><span class="o">{</span>
+        <span class="n">iv</span> <span class="o">=</span> <span class="o">(</span><span class="n">ImageView</span><span class="o">)</span> <span class="n">convertView</span><span class="o">.</span><span class="na">getTag</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="c1">//bitmap加载就这一行代码，display还有其他重载，详情查看源码</span>
+    <span class="n">fb</span><span class="o">.</span><span class="na">display</span><span class="o">(</span><span class="n">iv</span><span class="o">,</span><span class="n">Images</span><span class="o">.</span><span class="na">imageUrls</span><span class="o">[</span><span class="n">position</span><span class="o">]);</span>
+</pre></div>
+
+<hr><p><strong>&gt;&gt;&gt; Add by fantouch</strong></p>
+
+<h4>
+<a name="配置成android-library-project" class="anchor" href="#%E9%85%8D%E7%BD%AE%E6%88%90android-library-project"><span class="octicon octicon-link"></span></a>配置成Android Library Project</h4>
+
+<p><em>解决需求:有多个项目依赖afinal,并且想修改afinal源码</em></p>
+
+<blockquote>
+<ul>
+<li>clone到本地</li>
+<li>
+<p>添加AndroidManifest.xml文件:</p>
+
+<div class="highlight highlight-xml"><pre><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;manifest</span> <span class="na">xmlns:android=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
+<span class="na">package=</span><span class="s">"net.tsz.afinal"</span> <span class="nt">&gt;</span>
+<span class="nt">&lt;uses-sdk</span>
+    <span class="na">android:minSdkVersion=</span><span class="s">"5"</span>
+    <span class="na">android:targetSdkVersion=</span><span class="s">"7"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/manifest&gt;</span>
+</pre></div>
+</li>
+<li><p>导入到 Eclipse:<br><code>Import =&gt; Android =&gt; Existing Android Code Into Workspace</code></p></li>
+<li>工程上按右键 =&gt; Properties =&gt; Android =&gt; √ Is Library</li>
+<li>完成,你的项目可以引用这个afinal Library了.</li>
+</ul>
+</blockquote>
+
+<h4>
+<a name="排除不需要git管理的文件" class="anchor" href="#%E6%8E%92%E9%99%A4%E4%B8%8D%E9%9C%80%E8%A6%81git%E7%AE%A1%E7%90%86%E7%9A%84%E6%96%87%E4%BB%B6"><span class="octicon octicon-link"></span></a>排除不需要Git管理的文件</h4>
+
+<p><em>解决需求:想修改源码,但不想让Eclipse把工程弄脏</em></p>
+
+<blockquote>
+<ul>
+<li><p>忽略已经被Git管理的<code>./bin</code>目录:<br>
+导入Eclipse前执行:  <code>git update-index --assume-unchanged ./bin/*</code></p></li>
+<li>
+<p>忽略未被Git管理的文件和目录: 添加<code>/.gitignore</code> 文件:  </p>
+
+<pre><code>/gen
+/assets
+/bin
+/res
+/.classpath
+/.project
+/AndroidManifest.xml
+/project.properties
+/.gitignore
+</code></pre>
+</li>
+<li>导入到Eclipse,<code>git status</code>可见Repository依旧干净.</li>
+</ul>
+</blockquote>
+
+<p><strong>&lt;&lt;&lt; Add by fantouch</strong></p>
+
+<hr><h1>
+<a name="关于作者michael" class="anchor" href="#%E5%85%B3%E4%BA%8E%E4%BD%9C%E8%80%85michael"><span class="octicon octicon-link"></span></a>关于作者michael</h1>
+
+<ul>
+<li>个人博客：<a href="http://www.yangfuhai.com/">http://www.yangfuhai.com</a>
+</li>
+<li>afinal捐助：<a href="http://me.alipay.com/yangfuhai">http://me.alipay.com/yangfuhai</a> （为了感谢捐助者，michael将会把捐助者将公布在afinal官方网站<a href="http://www.afinal.org/">afinal.org</a>上,不让公布的同学说明下）</li>
+<li>afinal交流QQ群 ： 192341294</li>
+</ul></article>
+  </div>
+
+
+</div>
+
+      </div><!-- /.repo-container -->
+      <div class="modal-backdrop"></div>
+    </div><!-- /.container -->
+  </div><!-- /.site -->
+
+
+    </div><!-- /.wrapper -->
+
+      <div class="container">
+  <div class="site-footer">
+    <ul class="site-footer-links right">
+      <li><a href="https://status.github.com/">Status</a></li>
+      <li><a href="http://developer.github.com/">API</a></li>
+      <li><a href="http://training.github.com/">Training</a></li>
+      <li><a href="http://shop.github.com/">Shop</a></li>
+      <li><a href="https://github.com/blog">Blog</a></li>
+      <li><a href="https://github.com/about">About</a></li>
+
+    </ul>
+
+    <a href="https://github.com/">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+    </a>
+
+    <ul class="site-footer-links">
+      <li>© 2014 <span title="0.04387s from github-fe134-cp1-prd.iad.github.net">GitHub</span>, Inc.</li>
+        <li><a href="https://github.com/site/terms">Terms</a></li>
+        <li><a href="https://github.com/site/privacy">Privacy</a></li>
+        <li><a href="https://github.com/security">Security</a></li>
+        <li><a href="https://github.com/contact">Contact</a></li>
+    </ul>
+  </div><!-- /.site-footer -->
+</div><!-- /.container -->
+
+
+    <div class="fullscreen-overlay js-fullscreen-overlay" id="fullscreen_overlay">
+  <div class="fullscreen-container js-fullscreen-container">
+    <div class="textarea-wrap">
+      <textarea name="fullscreen-contents" id="fullscreen-contents" class="js-fullscreen-contents" placeholder="" data-suggester="fullscreen_suggester"></textarea>
+    </div>
+  </div>
+  <div class="fullscreen-sidebar">
+    <a original-title="" href="#" class="exit-fullscreen js-exit-fullscreen tooltipped tooltipped-w" aria-label="Exit Zen Mode">
+      <span class="mega-octicon octicon-screen-normal"></span>
+    </a>
+    <a original-title="" href="#" class="theme-switcher js-theme-switcher tooltipped tooltipped-w" aria-label="Switch themes">
+      <span class="octicon octicon-color-mode"></span>
+    </a>
+  </div>
+</div>
+
+
+
+    <div id="ajax-error-message" class="flash flash-error">
+      <span class="octicon octicon-alert"></span>
+      <a href="#" class="octicon octicon-remove-close close js-ajax-error-dismiss"></a>
+      Something went wrong with that request. Please try again.
+    </div>
+
+  
+
+
+<div original-title="" style="position: absolute; left: 0px; top: -9999px; width: 15px; height: 15px; z-index: 999999999;" class="global-zeroclipboard-container" id="global-zeroclipboard-html-bridge">      <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" id="global-zeroclipboard-flash-bridge" height="100%" width="100%">         <param name="movie" value="https://github.global.ssl.fastly.net/flash/ZeroClipboard.v1.3.2.swf?noCache=1393403660183">         <param name="allowScriptAccess" value="always">         <param name="scale" value="exactfit">         <param name="loop" value="false">         <param name="menu" value="false">         <param name="quality" value="best">         <param name="bgcolor" value="#ffffff">         <param name="wmode" value="transparent">         <param name="flashvars" value="trustedOrigins=github.com%2C%2F%2Fgithub.com%2Chttps%3A%2F%2Fgithub.com%2Cgithub.com%2C%2F%2Fgithub.com%2Chttps%3A%2F%2Fgithub.com">         <embed src="yangfuhai_afinal%20%C2%B7%20GitHub_files/ZeroClipboard.swf" loop="false" menu="false" quality="best" bgcolor="#ffffff" name="global-zeroclipboard-flash-bridge" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" wmode="transparent" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="trustedOrigins=github.com%2C%2F%2Fgithub.com%2Chttps%3A%2F%2Fgithub.com%2Cgithub.com%2C%2F%2Fgithub.com%2Chttps%3A%2F%2Fgithub.com" scale="exactfit" height="100%" width="100%">                </object></div></body></html>

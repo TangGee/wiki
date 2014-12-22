@@ -1,0 +1,4 @@
+LinkedHashMap 的构造方法  
+public LinkedHashMao(int initialCapactivity ,float loadFactory, boolean accessOrder);
+
+地一个参数是初始容量  第二个参数是加载因子(就是当空间不足时候增大的倍数)  第三个参数指定排序顺序(如果为true则按照最近访问元素排序,如果为false 则按照加入顺序排序)
