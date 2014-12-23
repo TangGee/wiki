@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+<head></head>
+
+<body>
+
+<canvas id="canvas" withd="600" height="800" style="background:yellow"/>
+
+
+<script>
+
+var canvas=document.getElementById("canvas");
+var context=canvas.getContext("2d");
+
+context.moveTo(20,20);
+context.lineTo(100,20);
+context.lineWith=7;
+context.stroke();
+
+
+context.closePath();
+context.beginPath();
+context.arc(200,100,50,0,360,false);
+context.stroke();
+
+context.closePath();
+
+context.beginPath();
+
+context.arc(200,200,50,0,360,false);
+context.fillStyle="#ff0000";
+context.fill();
+context.closePath();
+
+context.beginPath();
+context.rect(200,200,20,20);
+context.stroke();
+
+context.closePath();
+
+context.beginPath();
+context.strokeRect(280,200,20,20);
+context.closePath();
+
+context.beginPath();
+context.font="40px 黑体";
+context.fillText("啊啊啊啊啊",200,300,60);
+context.closePath();
+
+</script>
+
+</body>
+
+</html>

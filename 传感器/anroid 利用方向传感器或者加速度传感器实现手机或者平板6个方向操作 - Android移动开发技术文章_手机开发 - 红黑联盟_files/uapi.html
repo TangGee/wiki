@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+<meta http-equiv="X-UA-Compatible" content="IE=7">
+<link href="uapi_data/reset.css" rel="stylesheet" type="text/css">
+<link href="uapi_data/default_blue.css" rel="stylesheet" type="text/css">
+<script language="javascript" type="text/javascript" src="anroid%20%E5%88%A9%E7%94%A8%E6%96%B9%E5%90%91%E4%BC%A0%E6%84%9F%E5%99%A8%E6%88%96%E8%80%85%E5%8A%A0%E9%80%9F%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%E5%AE%9E%E7%8E%B0%E6%89%8B%E6%9C%BA%E6%88%96%E8%80%85%E5%B9%B3%E6%9D%BF6%E4%B8%AA%E6%96%B9%E5%90%91%E6%93%8D%E4%BD%9C%20-%20Android%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0_%E6%89%8B%E6%9C%BA%E5%BC%80%E5%8F%91%20-%20%E7%BA%A2%E9%BB%91%E8%81%94%E7%9B%9F_files/jquery.js"></script>
+<script language="javascript" type="text/javascript" src="anroid%20%E5%88%A9%E7%94%A8%E6%96%B9%E5%90%91%E4%BC%A0%E6%84%9F%E5%99%A8%E6%88%96%E8%80%85%E5%8A%A0%E9%80%9F%E5%BA%A6%E4%BC%A0%E6%84%9F%E5%99%A8%E5%AE%9E%E7%8E%B0%E6%89%8B%E6%9C%BA%E6%88%96%E8%80%85%E5%B9%B3%E6%9D%BF6%E4%B8%AA%E6%96%B9%E5%90%91%E6%93%8D%E4%BD%9C%20-%20Android%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0_%E6%89%8B%E6%9C%BA%E5%BC%80%E5%8F%91%20-%20%E7%BA%A2%E9%BB%91%E8%81%94%E7%9B%9F_files/jquery_002.js"></script>
+<style> 
+body{background:none;}
+.style1 {
+	border-collapse: collapse;
+	border-left:1px #C3D4E7 solid;
+	border-top:1px #C3D4E7 solid;
+	border-right:1px #C3D4E7 solid
+}
+</style>
+</head>
+<body onload="iframe_height()">
+<div id="bodyheight">
+<div style="padding:0px 0px 10px 0px;overflow:hidden;clear:both">
+	
+<table style="width: 100%" class="style1">
+<tbody><tr>
+<td style="padding:10px 0px 10px 0px;border-bottom:1px #C3D4E7 solid; font-weight: 700;background:#F1F5FA" colspan="2" align="center" valign="top" width="100">评论列表</td>
+</tr>
+
+</tbody></table>
+	
+</div>
+
+<form action="?act=save&amp;tid=210044&amp;catid=90&amp;title=YW5yb2lkIMD708O3vc/ytKu40Mb3u/LV37zTy9m2yLSruNDG98q1z9bK1rv6u/LV38a9sOU2uPa3vc/ystnX9yA=" method="post" onsubmit="return on_submit()" name="myf">
+      <div class="comment-form">
+      	<h5><strong>我来说两句</strong><span class="fn rt blue"></span></h5>
+        <div class="posn">
+</div>
+        <textarea rows="8" cols="80" name="content"></textarea><br>
+		        <div class="btn"><input name="doPost" value="发表评论" type="submit"></div>
+		&nbsp;&nbsp;红黑网友(游客)&nbsp;&nbsp;  <a href="javascript:" onclick="Login()" target="_top">登陆</a>&nbsp;&nbsp;<a href="http://home.2cto.com/index.php/index/regedit" target="_blank">注册</a>     </div>  
+</form>   
+<div class="bk10"></div>
+<script type="text/javascript"> 
+function on_submit() {
+	var username = '';
+	if (username = ''){
+		alert('请登陆后发表评论');
+		return false;
+	}else if(document.myf.content.value==""){
+		alert('评论内容不能为空');
+		return false;
+	} else {
+		iframe_height(200);
+		return true;
+	}
+}
+function iframe_height(height) {
+	if (!height) {
+		var height = document.getElementById('bodyheight').scrollHeight;
+	}
+	$('#top_src').attr('src', "http://www.2cto.com/js.html?"+height+'|'+0);
+}
+function Login(){
+	var url='http://home.2cto.com/?forward='+encodeURIComponent(parent.document.location.href);
+	window.open(url,target='blank');
+}
+ 
+ 
+</script>
+</div>
+<iframe id="top_src" src="uapi_data/js.html" height="0" width="0"></iframe>
+
+
+</body></html>

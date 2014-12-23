@@ -122,4 +122,134 @@ CCSpeed 速度控制
    //参数 延时 时间
    CCDelayTime.action(2);
    
+12 动作组合 并联
+     	CCJumpBy ccJumpBy=CCJumpBy.action(2, CGPoint.ccp(350, 200),150, 2);
+		CCRotateBy rotateBy=CCRotateBy.action(1, 360);
+		
+		//并发执行
+		CCSpawn ccSpawn=CCSpawn.actions(ccJumpBy, rotateBy);
+		
+		CCSequence sequence=CCSequence.actions(ccSpawn, ccSpawn.reverse());
+		
+		getSprite().runAction(sequence);
+		
+
+13 串联拼装方法action  CCCallFunc
+
+          CCSequence sequence=CCSequence.actions(moveTo,CCCallFunc.action(this, "moveToNext"));
+
+     	private int current=0;
+	public void moveToNext(){
+		current++;
+		if(current<roads.size())
+		{
+			CCMoveTo moveTo=CCMoveTo.action(2, roads.get(current));
+			
+			CCSequence sequence=CCSequence.actions(moveTo,CCCallFunc.action(this, "moveToNext"));
+			sPriCcSprite.runAction(sequence);
+		}
+	}
+
+
+
+
+
+
+
+14序列帧的播放
+private ArrayList<CCSpriteFrame> frames;
+	private void animate() {
+		//地一个参数一组图片
+		for(int num=1;num<=7;num++)
+		{
+			CCSpriteFrame frame=CCSprite.sprite("z_1_0"+num+".png").displayedFrame();
+		}
+		
+		CCAnimation anim=CCAnimation.animation("", 0.2f, frames);
+		CCAnimate animate=CCAnimate.action(anim);
+		
+		CCRepeatForever forever=CCRepeatForever.action(animate);
+		
+		sPriCcSprite.runAction(forever);
+	}
+
+
+
+15 CCFollow
+  1 大地图移动
+	this.runAction(CCFollow.action(sPriCcSprite));   this 是CCLayer类
+
+  
+
+
+
+
+16 粒子系统  CCParticleSystem 
+   		//定义想要的粒子系统
+		CCParticleSystem system=CCParticleSnow.node();
+		//设置图片资源 这里是雪花啊
+		system.setTexture(CCTextureCache.sharedTextureCache().addImage("xxx.png"));
+		//添加例子系统到layer
+		this.addChild(system);
+
+           2停止粒子系统 system.stopSystem();
+ 
+
+
+
+17 停止sprite的动画播放  sprite.stopAllActions();
+
+
+
+18 声音引擎 SoundEngine
+	SoundEngine soundEngine=SoundEngine.sharedEngine();
+		soundEngine.playSound(CCDirector.theApp, R.arm.xxx, false);
+
+
+
+
+
+
+
+
+
+19 计算两点的距离  CGPOintUtil  参数 两个点
+     CGPointUtil.distance(roads.get(current-1), roads.get(current));
+
+
+20 背景图片处理 
+  1用Tiled 处理生成关键点 对象等xml信息 
+
+  2 CCTMXTiledMap 工具解析xml 生成 该对象
+          CCTMXTiledMap gameMap = CCTMXTiledMap.tiledMap("map.xml");
+  3 加载  layer.addChild(gameMap);
+  4 解析对象
+           //根据名字获取背景的对象层
+		roads=new ArrayList<CGPoint>();
+		
+		CCTMXObjectGroup group=gameMap.objectGroupNamed("road");
+		ArrayList<HashMap<String, String>> objects = group.objects;
+		
+		for(HashMap<String, String> item: objects)
+		{
+			int x=Integer.parseInt(item.get("x"));
+			int y=Integer.parseInt(item.get("y"));
+			roads.add(CGPoint.ccp(x, y));
+		}
+    5 地图移动
+           1 大地图移动
+        this.runAction(CCFollow.action(sPriCcSprite));   this 是CCLayer类
+
+          2 小地图移动
+             	//如果要手动移动地图 锚点要设置为中点   position 设置为中点  并设置地图大小
+		gameMap.setAnchorPoint(0.5f,0.5f);
+		CGSize size=gameMap.getContentSize();
+		gameMap.setPosition(size.width/2,size.height/2);
+                gameMap.touchMove(event,gameMap);
+
+  
+
+21 暂停layer
+   layer.onExit();  //处于冻结状态 并不可点击
+   layer.onEnter(); //解冻
 
