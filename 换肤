@@ -1,0 +1,19 @@
+1换样式文件
+  setTheme(int styleId) 设置theme id 
+2  换 layout
+  如在程序中 横竖屏切换 切换布局
+   
+  首先在appliaction中设置 android:configChanges="orientation" 代表方向改变 就会 调用  onConfigurationChanged 方法   local 是本地化改变
+
+加上权限  CHANAGE_CONFIG
+
+
+  覆盖方法 onConfigurationChanged  
+   判断 newConfig==  判断横向还是纵向  设置不同的布局   这样就治好了多年的颈椎病  横向是  Configuration.ORIENTATION_PORTRAIT
+  纵向 configuration.ORIENTATION_LANDESCAPE
+
+ 
+  
+
+
+
