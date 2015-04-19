@@ -1,0 +1,214 @@
+动画分为三种 
+
+属性动画： 通过修改属性值产生动画效果 3.0之后才支持  
+视图动画 ： 只能作用在视图上面
+drawable动画  贞动画 
+
+
+tweenanimation 对象动画
+   渐变  旋转  唯一 缩放  变化一个对象
+frameanimation 贞
+
+
+分类  
+
+
+
+动画实质是什么 
+动画实现的机制
+实现动画
+
+练习
+
+
+
+Transformation 变换 运算 
+Animation 动画  使用上边类运算
+
+
+AlphaAnimation
+
+setFillAfter 动画停在结束位置
+setfillBefore 动画停在开始
+setInterpolator 设置插入起 
+setRepeatCount 设置重复次数
+setRepeatMode  一种是 从开始  一种是从结束位置 反方向
+setStartOffset 延迟启动事件
+setStartTime 设置启动时间
+setZAdjustment  z粥
+start 启动
+
+
+旋转方式  轴 
+ 三种 absute
+     父亲的中心  以自身为中心
+
+
+TranslateAnimation 
+   float fromXDelta:这个参数表示动画开始的点离当前View X坐标上的差值；
+
+　　float toXDelta, 这个参数表示动画结束的点离当前View X坐标上的差值；
+
+　　float fromYDelta, 这个参数表示动画开始的点离当前View Y坐标上的差值；
+
+　　float toYDelta)这个参数表示动画开始的点离当前View Y坐标上的差值；
+
+　　如果view在A(x,y)点 那么动画就是从B点(x+fromXDelta, y+fromYDelta)点移动到C 点(x+toXDelta,y+toYDelta)点.
+
+　　fromXType:第一个参数是x轴方向的值的参照(Animation.ABSOLUTE, Animation.RELATIVE_TO_SELF,or Animation.RELATIVE_TO_PARENT);
+
+　　fromXValue:第二个参数是第一个参数类型的起始值；
+
+　　toXType,toXValue:第三个参数与第四个参数是x轴方向的终点参照与对应值；
+
+AlphaAnimation 
+  两个参数  1 代表不透明  0 代表透明
+
+ScaleAnimation
+   float fromX 动画起始时 X坐标上的伸缩尺寸 
+float toX 动画结束时 X坐标上的伸缩尺寸 
+float fromY 动画起始时Y坐标上的伸缩尺寸 
+float toY 动画结束时Y坐标上的伸缩尺寸 
+int pivotXType 动画在X轴相对于物件位置类型 
+float pivotXValue 动画相对于物件的X坐标的开始位置 
+int pivotYType 动画在Y轴相对于物件位置类型 
+float pivotYValue 动画相对于物件的Y坐标的开始位置   这个0.5f 代表中心
+
+
+RotateAnimation
+     float fromDegrees：旋转的开始角度。 
+	float toDegrees：旋转的结束角度。 
+	int pivotXType：X轴的伸缩模式，可以取值为ABSOLUTE、RELATIVE_TO_SELF、RELATIVE_TO_PARENT。 
+	float pivotXValue：X坐标的伸缩值。 
+	int pivotYType：Y轴的伸缩模式，可以取值为ABSOLUTE、RELATIVE_TO_SELF、RELATIVE_TO_PARENT。 
+	float pivotYValue：Y坐标的伸缩值。 
+
+
+AnimationSet   动画集合
+   一组 animation  方法 animation   还有个参数 是否共享 动画插入器
+     AnimationSet animationSet=new AnimationSet(false);
+        Animation animation1=new AlphaAnimation(0.1f,1f);
+        Animation animation2=new RotateAnimation(0,360);
+        Animation animation3=new TranslateAnimation(0,100,0,100);
+        Animation animation4=new ScaleAnimation(1f,2f,1f,2f);
+        animationSet.addAnimation(animation1);
+        animationSet.addAnimation(animation2);
+        animationSet.addAnimation(animation3);
+        animationSet.addAnimation(animation4);
+        animationSet.setDuration(3000);
+        iv.startAnimation(animationSet);
+
+
+配置文件实现动画  
+  在anim下定义 TweenAnimation 
+  frameAnimation不是放在anima下面
+
+比如说我要实现一个月全食的效果 可以用贞动画  交替出现
+
+交替的图片变化动画   啊啊啊
+有的人在做游戏的时候 任务的走动也是有几张图片来形成的 腿不一样 就变成了 走动
+gif 动画也是 贞动画  
+
+官方推荐我们用xml 定义贞动画 
+
+
+frameanimation 放在drawable下面
+    <?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/fzr" android:duration="50"/>
+    <item android:drawable="@drawable/ic_launcher" android:duration="20"/>
+    <item android:drawable="@drawable/fzr" android:duration="50"/>
+    <item android:drawable="@drawable/ic_launcher" android:duration="20"/>
+    <item android:drawable="@drawable/fzr" android:duration="50"/>
+    <item android:drawable="@drawable/ic_launcher" android:duration="20"/>
+    <item android:drawable="@drawable/fzr" android:duration="50"/>
+    <item android:drawable="@drawable/ic_launcher" android:duration="20"/>
+
+</animation-list>
+
+ iv= (ImageView) findViewById(R.id.iv);
+
+        iv.setBackgroundResource(R.drawable.ramedrawable);
+         drawable= (AnimationDrawable) iv.getBackground();
+        drawable.start();
+
+AnimationDrawable
+  方法 
+
+大胆假设 小心的去求证
+
+
+3D旋转动画 
+  
+Interpolator   插入器
+  子类  
+Accelerateinterpolator  加速运行
+AccelerateDecelerateInterpolator  先加速再减速
+CycleInterpolator  循环 
+Decelerateinterpolator 减速
+LinearInterpolator 线性 
+AnticipateInterpolator 预期
+
+AccelerateDecelerateInterpolator, AccelerateInterpolator, AnticipateInterpolator, AnticipateOvershootInterpolator, BaseInterpolator, BounceInterpolator, CycleInterpolator, DecelerateInterpolator, LinearInterpolator, OvershootInterpolator, PathInterpolator
+
+
+动画的实现原理
+  Animation 
+  Interpolater
+  Transformation 
+
+animation类 控制 Tranformation类 产生动画 
+
+animation 有个applyTransformation 方法 给属性设置给 transformation
+
+ view 的bitmap与 tranformation相乘实现 缩放平移什么的 
+ 设置 tranformation的 alpha 设置透明度
+
+父控件有个dispatchDraw方法 
+
+动画的运行模式 中断模式  用主线程画 独占模式 单开一个线程
+
+
+
+可以给activity设置东湖啊 如 
+
+如 <style name="AnimationActivity" parent="@android:style/Animation_Activity">
+       <item name="android:ActivityOpenEnterAnimation">@anim/push_left_in</item>
+      <item name="android:ActivityOpenExitAnimation">@anim/push_left_in</item>
+      <item name="android:ActivityCloseEnterAnimation">@anim/push_left_in</item>
+      <item name="android:ActivityCloseExitAnimation">@anim/push_left_in</item>
+  </style>
+
+然后在设置主题
+ <style name="ThemeActivity">
+    <item name="windowAnimationStyle">@style/AnimationAticity</item>
+    <item name="android:windowNoTitle">true</item>
+ </style>
+
+
+也可以用代码去制定
+  overridePendingTransition方法  
+但需要注意的是： 该函数必须在调用startActivity() 或者finishe后立即调用 切只能有效一次
+
+
+拖动 
+   实际上也很简单  不是点击他的效果 是点了他任意拖放的效果 啊啊啊  好吧 这真是碉堡了     
+
+
+我们来分析一下 是怎么实现拖动的 就拿 拖动一个按钮来说  第一次点击它的时候 也就是我们down后  onTouch事件  
+
+view里面有一个layout方法 直接设置xy值就可以了了 
+
+
+ViewAnimaoor  这个是拖拽效果
+
+
+GestureDtector  手势 
+
+onTouchEvent 的返回值改成 gestureDetector.onTouchEvent(event) 就传给手势识别了 
+给手势解析器 传递一个  gesturelistener对象 就可以监听了 
+
+onFling  快速华东‘
+
+
+gradview自带方法 invalidateViews 重新排列 pointToPosition通过点  得到 position 
